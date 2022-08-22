@@ -1,0 +1,154 @@
+@import './resets';
+@import './typography';
+@import './variables';
+
+body{
+    background: linear-gradient($Gradient-violet, $Gradient-blue) no-repeat;
+    height: 100vh;
+}
+
+.card{
+    background: #ffffff;
+    max-width: 925px;
+    //margin: 500px auto;
+    border-radius: 1.5rem;
+    margin: 15.25rem 1.43rem;
+    position: relative;
+}
+
+.card__image{
+    background-image: url("../images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    & .woman-mobile{
+        margin: 0 auto;
+        width: 20rem;
+        position: relative;
+        top:-9rem;
+    }
+}
+
+.card__text{
+    margin-top: -5rem;
+    padding: 3.21rem;
+    padding-top: 0;
+    & h1{
+        text-align: center;
+    }
+}
+
+.woman-desktop{
+    display: none;
+}
+
+
+.accordion__button{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    padding: 1.2rem 0rem;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    &::after{
+        content:'';
+        width: 10px;
+        height: 10px;
+        display: block;
+        background: url('../images/icon-arrow-down.svg') no-repeat;
+        background-position: bottom;
+        float: right;
+
+        }
+        &:hover{
+            color:$Text-hover;
+        }
+    }
+    
+
+.accordion--item{
+    border-bottom: 1px solid $Dividers;
+}
+
+
+.accordion--item.show {
+    & .accordion__button::after{
+    transform: rotate(180deg);
+    }
+
+    & .accordion--collapse{
+        display: block;
+    }
+}
+
+
+.accordion--collapse{
+    margin-bottom: 1rem;
+    height: 30px;
+    display: none;
+}
+
+.collapsing{
+    background-color: red;
+    height: 0;
+    overflow: hidden;
+    transition: height 3s ease;
+}
+
+
+// desktop media query
+
+@media (min-width: 900px){
+
+    body{
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient( $Gradient-violet, $Gradient-blue) no-repeat;
+        display: flex;
+        align-items: center;
+    }
+
+    .card{
+        display: flex;
+        margin: 126px auto;
+        padding: 0;
+    }
+
+    .card__image,
+    .card__text{
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .card__image{
+        padding: 5rem 0;
+        background-image: url('../images/bg-pattern-desktop.svg');
+        background-repeat: no-repeat;
+        background-position:right 5rem bottom 30%;
+        background-size: 215%;
+    }
+
+    .woman-desktop{
+        width: 100%;
+        display: block;
+        object-fit: fill;
+        position: relative;
+        left: -5rem;
+    }
+
+    .woman-mobile{
+        display: none;
+    }
+
+    .card__text{
+        & h1{
+            text-align: left;
+        }
+        margin-top: 0;
+        padding: 4.56rem 4.37rem;
+        margin-right: 6rem;
+    }
+}

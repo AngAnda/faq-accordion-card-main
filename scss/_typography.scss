@@ -1,0 +1,46 @@
+@import './variables';
+
+html{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: weight(regular);
+}
+
+@function weight($weight){
+    @return map-get($font-weights , $weight);
+}
+
+.card__text{
+    color: $Text-heading;
+}
+
+h1, h2{
+    font-weight: weight(bold);
+    color: $Text-em;
+}
+
+.accordion__collapse{
+    color:$Text-par;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+
+.accordion__button{
+    // font-weight: weight(bold);
+    color: $Text-em;
+    background-color: red;
+    font-size: 1.2rem;
+    #{&} .collapsed{
+        font-weight: weight(regular);
+        color:$Text-par;
+    }
+}
+
+.accordion--item.show .accordion__button{
+    font-weight: weight(bold);
+    color: $Text-em;
+}
+
